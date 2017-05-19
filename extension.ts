@@ -40,12 +40,16 @@ export class WordCounter {
 
         let doc = editor.document;
 
+        let kk = editor.document.getText();
+        console.log(kk);
+        
+
         // Only update status if an MD file
         if (doc.languageId === "markdown") {
             let wordCount = this._getWordCount(doc);
 
             // Update the status bar
-            this._statusBarItem.text = wordCount !== 1 ? `$(pencil) ${wordCount} Words` : '$(pencil) 1 Word';
+            this._statusBarItem.text = wordCount !== 1 ? `输出：$(pencil) ${wordCount} Words` : '$(pencil) 1 Word';
             this._statusBarItem.show();
         } else {
             this._statusBarItem.hide();
