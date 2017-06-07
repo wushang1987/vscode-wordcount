@@ -14,6 +14,7 @@ export function activate(ctx: ExtensionContext) {
     let wordCounter = new WordCounter();
     let controller = new WordCounterController(wordCounter);
 
+
     // add to a list of disposables which are disposed when this extension
     // is deactivated again.
     ctx.subscriptions.push(controller);
