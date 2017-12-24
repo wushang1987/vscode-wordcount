@@ -31,6 +31,32 @@
 		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
 		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
 	},
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.ww",
+				"title": "Hell"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"when": "resourceLangId == markdown",
+					"command": "markdown.showPreview",
+					"alt": "markdown.showPreviewToSide",
+					"group": "navigation"
+				}
+			],
+			"explorer/context": [
+				{
+					"when": "resourceLangId == markdown",
+					"command": "extension.ww",
+					"alt": "extension.ww",
+					"group": "navigation"
+				}
+			]
+		}
+	},
 	"devDependencies": {
 		"vscode": "0.10.x",
 		"typescript": "^1.6.2"

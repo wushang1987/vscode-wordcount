@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import {window, workspace, commands, Disposable, ExtensionContext, StatusBarAlignment, StatusBarItem, TextDocument} from 'vscode';
-
+import * as fs from "fs";
 // this method is called when your extension is activated. activation is
 // controlled by the activation events defined in package.json
 export function activate(ctx: ExtensionContext) {
@@ -17,6 +17,11 @@ export function activate(ctx: ExtensionContext) {
 
     // add to a list of disposables which are disposed when this extension
     // is deactivated again.
+    commands.registerCommand("extension.ww", () => {
+        console.log("ddd");
+
+
+    });
     ctx.subscriptions.push(controller);
     ctx.subscriptions.push(wordCounter);
 }
@@ -26,11 +31,11 @@ export class WordCounter {
     private _statusBarItem: StatusBarItem;
 
     public updateWordCount() {
-        
+
         // Create as needed
         if (!this._statusBarItem) {
             this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
-        } 
+        }
 
         // Get the current text editor
         let editor = window.activeTextEditor;
@@ -43,7 +48,7 @@ export class WordCounter {
 
         let kk = editor.document.getText();
         console.log(kk);
-        
+
 
         // Only update status if an MD file
         if (doc.languageId === "markdown") {
@@ -100,5 +105,12 @@ class WordCounterController {
 
     public dispose() {
         this._disposable.dispose();
+    }
+}
+
+export class ww {
+    constructor(parameters) {
+        console.log("dddd");
+
     }
 }
